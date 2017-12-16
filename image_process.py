@@ -31,4 +31,3 @@ def dirty_percentage(file_directory):
 	#print len(img)*len(img[0])
 	return str(100.0*(germs/float(total_circle)))
 	#plt.imshow(img, cmap="gray")
-print dirty_percentage("Selection_001.png")

@@ -1,4 +1,5 @@
 import tornado
+import tornado.httpserver
 import tornado.ioloop
 import tornado.web
 import os, uuid
@@ -22,7 +23,7 @@ class Upload(tornado.web.RequestHandler):
         fh = open(__UPLOADS__ + cname, 'wb')
         fh.write(fileinfo['body'])
         print fileinfo['body']
-        
+
         result=dirty_percentage("uploads/"+cname)
 
         self.finish(result)
@@ -35,5 +36,7 @@ application = tornado.web.Application([
 
 
 if __name__ == "__main__":
-    application.listen(5000)
+    http_server = tornado.httpserver.HTTPServer(application)
+    port = int(os.environ.get("PORT", 5000))
+    http_server.listen(port)
     tornado.ioloop.IOLoop.instance().start()
