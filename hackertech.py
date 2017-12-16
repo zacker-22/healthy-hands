@@ -10,7 +10,7 @@ __UPLOADS__ = "./uploads/"
 
 class Userform(tornado.web.RequestHandler):
     def get(self):
-        self.render("form.html")
+        self.render("index.html")
 
 
 class Upload(tornado.web.RequestHandler):
@@ -33,6 +33,8 @@ class Upload(tornado.web.RequestHandler):
 application = tornado.web.Application([
         (r"/", Userform),
         (r"/upload", Upload),
+        (r"/images/(.*)", tornado.web.StaticFileHandler, {'path': "./"}),
+        (r"/css/(.*)", tornado.web.StaticFileHandler, {'path': "./"}),
         ], debug=False)
 
 
@@ -40,4 +42,5 @@ if __name__ == "__main__":
     http_server = tornado.httpserver.HTTPServer(application)
     port = int(os.environ.get("PORT", 5000))
     http_server.listen(port)
+
     tornado.ioloop.IOLoop.instance().start()
