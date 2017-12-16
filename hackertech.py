@@ -25,7 +25,7 @@ class Upload(tornado.web.RequestHandler):
         #print fileinfo['body']
 
         result=dirty_percentage("uploads/"+cname)
-
+        self.add_header("Access-Control-Allow-Origin", "*")
         self.finish(result)
 
 
