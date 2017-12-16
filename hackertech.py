@@ -26,7 +26,7 @@ class Upload(tornado.web.RequestHandler):
 
         result=dirty_percentage("uploads/"+cname)
         self.add_header("Access-Control-Allow-Origin", "*")
-        self.finish(result)
+        self.render("result.html", result = result)
 
 
 
@@ -34,7 +34,7 @@ application = tornado.web.Application([
         (r"/", Userform),
         (r"/upload", Upload),
         (r"/images/(.*)", tornado.web.StaticFileHandler, {'path': "./"}),
-        (r"/css/(.*)", tornado.web.StaticFileHandler, {'path': "./"}),
+        (r"/(.*)", tornado.web.StaticFileHandler, {'path': "./"}),
         ], debug=False)
 
 
