@@ -1,6 +1,5 @@
 from PIL import Image
 import numpy as np
-from  matplotlib import pyplot as plt
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 def dirty_percentage(file_directory):
