@@ -10,7 +10,7 @@ __UPLOADS__ = "./uploads/"
 
 class Userform(tornado.web.RequestHandler):
     def get(self):
-        self.render("form.html")
+        self.render("index.html")
 
 
 class Upload(tornado.web.RequestHandler):
@@ -27,6 +27,7 @@ class Upload(tornado.web.RequestHandler):
         result=dirty_percentage("uploads/"+cname)
 
         self.finish(result)
+
 
 
 application = tornado.web.Application([

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hackertech</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="main-wrapper">
+		<nav>
+		    <div class="nav-wrapper">
+		     	<a href="#!" class="brand-logo"><img src="logo.png" width="70px"></a>
+		     	<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		      	<ul class="right hide-on-med-and-down">
+		        	<li><a href="#">About Us</a></li>
+		      	</ul>
+		      	<ul class="side-nav" id="mobile-demo">
+		        	<li><a href="#">About US</a></li>
+		      	</ul>
+		    </div>
+		</nav>
+	
+		<div class="container">
+			<div class="container1">
+				
+
+			
+				<a data-scroll href="#section2" id="arrow-button">
+			    	<div class="arrow1"></div>
+			  	</a>
+			</div>
+
+
+
+ 			<!-- <p>Take Video</p>
+			<input type="file" accept="video/*;capture=camcorder">
+			<br><br>
+				<input type="file" accept="audio/*;capture=microphone"> -->
+		</div>
+	</div>
+
+		<div id="section2">
+			<div class="container">
+				<form method="POST" action="/upload">
+					
+					<h4>Take photo:</h4>
+					<input type="file" accept="image/*;capture=camera" id="mainImage">
+					<br><br>
+
+					<button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Submit
+					    <i class="material-icons right">send</i>
+					</button>
+				</form>
+
+				<br><br>
+				<div class="preloader-wrapper big active" style="text-align: center;">
+			    	<div class="spinner-layer spinner-blue">
+			        	<div class="circle-clipper left">
+			          		<div class="circle"></div>
+				        </div>
+				        <div class="gap-patch">
+				        	<div class="circle"></div>
+				        </div>
+				        <div class="circle-clipper right">
+				        	<div class="circle"></div>
+				        </div>
+			    	</div>
+				</div>
+			</div>
+		</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".button-collapse").sideNav();
+			$("#arrow-button").on('click', function(event) {
+			    if (this.hash !== "") {
+			      event.preventDefault();
+			      var hash = this.hash;
+			      $('html, body').animate({
+			        scrollTop: $(hash).offset().top
+			      }, 800, function(){
+			        window.location.hash = hash;
+			      });
+			    } 
+			  });
+			// $('#submit').on('click', function(e){
+			// 	e.preventDefault();
+			// 	$.ajax({
+			// 		type: "POST",
+			// 		url : 'http://healthy-hands.herokuapp.com/upload',
+			// 		data : new FormData($('#mainImage')[0]),
+			// 		processData: false,
+   //  				contentType: false,
+   //  				success : function(data) {
+   //  					console.log("Image gone");
+   //  					console.log("This is the data that came");
+
+   //  				},
+   //  				error : function(data) {
+   //  					console.log("sdjbfkbwe");
+   //  				}
+			// 	});
+			// });
+
+		});
+	</script>
+</body>
+</html>
