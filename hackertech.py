@@ -10,7 +10,7 @@ __UPLOADS__ = "./uploads/"
 
 class Userform(tornado.web.RequestHandler):
     def get(self):
-        self.render("index.html")
+        self.render("form.html")
 
 
 class Upload(tornado.web.RequestHandler):
